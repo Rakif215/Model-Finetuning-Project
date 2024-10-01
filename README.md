@@ -1,29 +1,86 @@
-# Model Finetuning Project
+# LLama Fine-tuning Project for Social Media Analytics
 
-This project demonstrates the process of fine-tuning pre-trained models using Hugging Face's `Transformers` library and the `TRL` (Transformers Reinforcement Learning) library. The goal of this project is to provide a modular, reproducible process for customizing models for specific tasks, such as text classification or other NLP tasks.
+This project focuses on fine-tuning LLama models for social media analytics tasks using the Unsloth library. It provides a flexible framework for initializing, training, and deploying fine-tuned language models with a specific emphasis on social media content analysis.
 
-## Project Overview
+## Features
 
-The key components of this project are:
-- **Training a pre-trained model** on custom datasets using transfer learning.
-- **Deploying the fine-tuned model** for real-world inference tasks.
-- **Script-based execution**, making it easily adaptable to various NLP tasks.
+- Fine-tune LLama models (including LLama 3) using Parameter-Efficient Fine-Tuning (PEFT) techniques
+- Support for multiple model variants and quantization methods
+- Custom dataset preparation and loading
+- Configurable training process with JSON-based configurations
+- Inference capabilities with support for few-shot learning
+- Easy model saving and deployment options, including Hugging Face Hub integration
 
-This project is ideal for NLP enthusiasts, data scientists, and engineers looking to extend pre-trained models for specialized tasks with minimal code changes.
+## Installation
+
+1. Clone this repository:
+   ```
+   git clone [your-repo-url]
+   cd [your-repo-name]
+   ```
+
+2. Install the required packages:
+   ```
+   pip install -r requirements.txt
+   ```
+
+3. Run the `install_packages.py` script to install additional dependencies:
+   ```
+   python install_packages.py
+   ```
+
+## Usage
+
+### Fine-tuning
+
+To fine-tune a model:
+
+1. Prepare your dataset and place it in the `data` directory.
+2. Adjust the configurations in `config/lora_config.json` and `config/training_config.json` as needed.
+3. Run the fine-tuning process:
+   ```
+   python finetuning.py --dataset_path [path_to_your_dataset]
+   ```
+
+To resume training from a checkpoint, use the `--resume` flag:
+```
+python finetuning.py --dataset_path [path_to_your_dataset] --resume
+```
+
+### Inference
+
+You can use the trained model for inference by initializing the `LLamafine` class and using its `inference` or `inference_n_shots` methods.
+
+Example:
+```python
+llamafine = LLamafine()
+llamafine.initialize_model(model_name="your_fine_tuned_model_name")
+output, _ = llamafine.inference(sys_prompt, instruction, input_text)
+```
 
 ## Project Structure
 
-- **finetuning.py**: Main script to train and fine-tune a pre-trained model.
-- **install_packages.py**: Script to install all the required dependencies.
-- **requirements.txt**: List of all dependencies required for running the project.
-- **use_finetuned_model.py**: Script for loading and using the fine-tuned model for predictions.
+- `finetuning.py`: Main script for model fine-tuning and management
+- `install_packages.py`: Script to install necessary packages and dependencies
+- `requirements.txt`: List of Python package dependencies
+- `config/`: Directory containing JSON configuration files for LoRA and training
+- `data/`: Directory to store datasets (not included in the repository)
+- `checkpoints/`: Directory to store model checkpoints during training
 
-## Requirements
+## Configuration
 
-Make sure you have Python 3.8+ installed. You can install the necessary dependencies by either using the provided install script or `requirements.txt`.
+- `lora_config.json`: Configure LoRA (Low-Rank Adaptation) settings
+- `training_config.json`: Set training arguments such as learning rate, batch size, etc.
 
-### Use the Install Script
-```bash
-python install_packages.py
+## Contributing
 
-'''bash
+Contributions to this project are welcome. Please feel free to submit a Pull Request.
+
+## License
+
+[Specify your license here]
+
+## Acknowledgments
+
+- This project uses the Unsloth library for efficient fine-tuning of LLama models.
+- Special thanks to the Hugging Face team for their transformers library and model hosting capabilities.
