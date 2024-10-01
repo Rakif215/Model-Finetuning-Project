@@ -15,8 +15,8 @@ This project focuses on fine-tuning LLama models for social media analytics task
 
 1. Clone this repository:
    ```
-   git clone [your-repo-url]
-   cd [your-repo-name]
+   git clone (https://github.com/your-username/Model-Finetuning-Project.git)
+   cd Model-Finetuning-Project
    ```
 
 2. Install the required packages:
@@ -76,9 +76,6 @@ output, _ = llamafine.inference(sys_prompt, instruction, input_text)
 
 Contributions to this project are welcome. Please feel free to submit a Pull Request.
 
-## License
-
-[Specify your license here]
 
 ## Acknowledgments
 
