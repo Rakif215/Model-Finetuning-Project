@@ -76,9 +76,6 @@ output, _ = llamafine.inference(sys_prompt, instruction, input_text)
 
 Contributions to this project are welcome. Please feel free to submit a Pull Request.
 
-## License
-
-[Specify your license here]
 
 ## Acknowledgments
 
