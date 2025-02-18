@@ -15,7 +15,7 @@ This project focuses on fine-tuning LLama models for social media analytics task
 
 1. Clone this repository:
    ```
-   git clone (https://github.com/your-username/Model-Finetuning-Project.git)
+   git clone (https://github.com/Rakif215/Model-Finetuning-Project.git)
    cd Model-Finetuning-Project
    ```
 
